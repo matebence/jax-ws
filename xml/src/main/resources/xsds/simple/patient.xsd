@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bencemate.com/PatientSimple"
+        xmlns:tns="http://bencemate.com/PatientSimple" elementFormDefault="qualified">
+
+    <element name="patient" type="tns:PatientSimple"/>
+
+    <complexType name="PatientSimple">
+        <sequence>
+            <element name="id" type="tns:ID"/>
+            <element name="name" type="tns:String15Chars"/>
+            <element name="age" type="int"/>
+            <element name="dob" type="date"/>
+            <element name="email" type="string"/>
+            <element name="gender" type="tns:Gender"/>
+            <element name="phone" type="string"/>
+        </sequence>
+    </complexType>
+
+    <!--simple int with regex pattern-->
+    <simpleType name="ID">
+        <restriction base="int">
+            <pattern value="[0-9]*"/>
+        </restriction>
+    </simpleType>
+
+    <!--simple string with max length-->
+    <simpleType name="String15Chars">
+        <restriction base="string">
+            <maxLength value="15"/>
+        </restriction>
+    </simpleType>
+
+    <!--simple string with enum-->
+    <simpleType name="Gender">
+        <restriction base="string">
+            <enumeration value="M"/>
+            <enumeration value="F"/>
+        </restriction>
+    </simpleType>
+</schema>

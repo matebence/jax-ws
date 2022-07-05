@@ -1,0 +1,5 @@
+<pat:patient xmlns:pat="http://bencemate.com/PatientSequence">
+    <pat:first>3</pat:first>
+    <pat:second>3</pat:second>
+    <pat:third>3</pat:third>
+</pat:patient>

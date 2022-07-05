@@ -1,0 +1,9 @@
+<pat:patient xmlns:pat="http://bencemate.com/PatientComplex">
+    <pat:id>3</pat:id>
+    <pat:age>3</pat:age>
+    <pat:dob>2008-09-29</pat:dob>
+    <pat:name>string</pat:name>
+    <pat:email>string</pat:email>
+    <pat:gender>string</pat:gender>
+    <pat:phone>string</pat:phone>
+</pat:patient>

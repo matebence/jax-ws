@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bencemate.com/PatientComplex"
+        xmlns:tns="http://bencemate.com/PatientComplex" elementFormDefault="qualified">
+
+    <element name="patient" type="tns:PatientComplex"/>
+
+    <!--complex type like an object in Java-->
+    <complexType name="PatientComplex">
+        <sequence>
+            <element name="id" type="int"/>
+            <element name="age" type="int"/>
+            <element name="dob" type="date"/>
+            <element name="name" type="string"/>
+            <element name="email" type="string"/>
+            <element name="gender" type="string"/>
+            <element name="phone" type="string"/>
+        </sequence>
+    </complexType>
+</schema>

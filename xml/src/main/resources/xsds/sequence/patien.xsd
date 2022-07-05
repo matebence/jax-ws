@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bencemate.com/PatientSequence"
+        xmlns:tns="http://bencemate.com/PatientSequence" elementFormDefault="qualified">
+
+    <element name="patient" type="tns:PatientSequence"/>
+
+    <complexType name="PatientSequence">
+        <!--the sequence sets the order-->
+        <sequence>
+            <element name="first" type="int"/>
+            <element name="second" type="int"/>
+            <element name="third" type="int"/>
+        </sequence>
+    </complexType>
+</schema>

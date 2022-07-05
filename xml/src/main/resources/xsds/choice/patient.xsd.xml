@@ -1,0 +1,17 @@
+<pat:patient xmlns:pat="http://bencemate.com/PatientChoice">
+    <pat:id>3</pat:id>
+    <pat:name>string</pat:name>
+    <pat:age>3</pat:age>
+    <pat:dob>2008-09-29</pat:dob>
+    <pat:email>string</pat:email>
+    <pat:gender>M</pat:gender>
+    <pat:phone>string</pat:phone>
+    <pat:payment>
+        <!--You have a CHOICE of the next 2 items at this level-->
+        <!--<pat:cash>3</pat:cash>-->
+        <pat:insurance>
+            <pat:provider>string</pat:provider>
+            <pat:limit>3</pat:limit>
+        </pat:insurance>
+    </pat:payment>
+</pat:patient>
