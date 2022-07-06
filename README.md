@@ -1,4 +1,4 @@
-## Hibernate (JAXB/JAX-WS)
+## JAXB/JAX-WS
 
 A JAX-WS application has two main roles
 - Consumer 
