@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://orders.resources/"
+           elementFormDefault="qualified"
+           targetNamespace="http://orders.resources/" version="1.0">
+
+    <!-- if custom types, then define it first -->
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element maxOccurs="unbounded" name="product" type="tns:product"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element minOccurs="0" name="quantity" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- create request and reponse element based on the complex types -->
+    <xs:element name="getOrdersRequest" type="tns:getOrdersRequest"/>
+    <xs:element name="getOrdersResponse" type="tns:getOrdersResponse"/>
+
+    <xs:complexType name="getOrdersRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getOrdersResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="order" type="tns:order"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- create request and reponse element based on the simple types -->
+    <xs:element name="createOrdersRequest" type="tns:createOrdersRequest"/>
+    <xs:element name="createOrdersResponse" type="tns:createOrdersResponse"/>
+
+    <xs:complexType name="createOrdersRequest">
+        <xs:sequence>
+            <xs:element name="customerId" type="xs:integer"/>
+            <xs:element name="order" type="tns:order"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createOrdersResponse">
+        <xs:sequence>
+            <xs:element name="result" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
