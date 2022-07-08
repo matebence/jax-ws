@@ -733,14 +733,12 @@ cp jssecacerts $JAVA_HOME\jre\lib\security
 > #### Generating asymmetric keys
 
 ```bash
-keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias producerAlias -keypass producerPass -storepass producerStorePass -keystore producerKeyStore.jks -dname "cn=ecneb"
-keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias consumerAlias  -keypass consumerPass -storepass consumerStorePass -keystore consumerKeyStore.jks -dname "cn=ecneb"
+keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias myservicekey -keypass skpass -storepass sspass -keystore serviceKeystore.jks -dname "cn=ecneb"
+keytool -genkey -keyalg RSA -sigalg SHA1withRSA -validity 600 -alias myclientkey  -keypass ckpass -storepass cspass -keystore clientKeystore.jks -dname "cn=ecneb"
 
+keytool -export -rfc -keystore clientKeystore.jks -storepass cspass -alias myclientkey -file MyClient.cer
+keytool -export -rfc -keystore serviceKeystore.jks -storepass sspass -alias myservicekey -file MyService.cer
 
-keytool -export -rfc -keystore consumerKeyStore.jks -storepass consumerStorePass -alias consumerAlias -file consumer.cer
-keytool -export -rfc -keystore producerKeyStore.jks -storepass producerStorePass -alias producerAlias -file producer.cer
-
-
-keytool -import -trustcacerts -keystore producerKeyStore.jks -storepass producerStorePass -alias consumerAlias -file consumer.cer -noprompt
-keytool -import -trustcacerts -keystore consumerKeyStore.jks -storepass consumerStorePass -alias producerAlias -file producer.cer -noprompt
+keytool -import -trustcacerts -keystore serviceKeystore.jks -storepass sspass -alias myclientkey -file MyClient.cer -noprompt
+keytool -import -trustcacerts -keystore clientKeystore.jks -storepass cspass -alias myservicekey -file MyService.cer -noprompt
 ```
