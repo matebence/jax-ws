@@ -1,5 +1,7 @@
 package resources.orders;
 
+import org.apache.cxf.feature.Features;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -13,6 +15,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 3.5.3
  *
  */
+@Features(features = "org.apache.cxf.feature.LoggingFeature")
 @WebService(targetNamespace = "http://orders.resources/", name = "CustomerOrdersPortType")
 @XmlSeeAlso({ObjectFactory.class})
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
